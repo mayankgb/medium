@@ -40,7 +40,7 @@ export const Publish = ()=>{
               const res = await axios.post(`${BACKEND_URL}/api/v1/blog`,
                     postInputs,{
                     headers:{
-                        Authorization:localStorage.getItem("token")
+                        Authorization:JSON.parse(localStorage.getItem("token")||"").jwt
                     }
                 })
                 navigate(`/blog/${res.data.id}`)
